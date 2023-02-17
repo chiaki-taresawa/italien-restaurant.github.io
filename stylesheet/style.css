@@ -1,0 +1,298 @@
+/* ----------------------------------------------- 共通 */
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  color: #000000;
+  font-family: 'Noto Sans JP', sans-serif;
+  padding-bottom: 0;
+
+}
+
+p {
+  line-height: 2.0em;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 14px;
+
+}
+
+.section_title{
+  font-size: 36px;
+  font-weight: 600;
+}
+
+/*section_titleに疑似要素を追加*/
+.section_title::after{
+  /*疑似要素がデフォルトでインライン要素のためのブロック要素に変更*/
+  display: block;
+  /*サブタイトルの文字の大きさや余白*/
+  font-size: 14px;
+  font-weight: 400;
+  padding: 16px 0 16px;
+
+  /*下線の長さを100pxに設定*/
+  width: 100px;
+
+  /*下線を直線、1px、黒に設定*/
+  border-bottom: solid 1px black;
+}
+
+/* ----------------------------------------------- ナビゲーションバー */
+.navbar_brand_logo{
+  /**サイズを32pxの正方形へ*/
+  width: 32px;
+  height: 32px;
+  /*imgはインライン要素なのでインラインブロックに設定*/
+  display: inline-block;
+  /*SAMURAI KITCHEN文字の空白を15pxに*/
+  margin-right: 15px;
+}
+
+.my_navbar_brand, .my_nav_link{
+  font-size: 16px;
+  font-family: serif;
+  color: black !important;
+}
+
+/*Bootstrapのボタンに初期設定されている周囲のBorderを消す*/
+.navbar-toggler{
+  padding: 0;
+  border: none;
+}
+
+/*ハンバーガーボタンがチェック状態であるとき、閉じるボタンを表示*/
+#hamburger_btn_check:checked~ .hamburger_btn .btn_close{
+  display: block;
+}
+/*ハンバーガーボタンがチェック状態であるとき、ハンバーガーを表示しない*/
+#hamburger_btn_check:checked~ .hamburger_btn .btn_open{
+  display: none;
+}
+
+/*最初に表示したときは閉じるボタンを表示しない*/
+.btn_close{
+  display: none;
+}
+
+/*ハンバーガーボタンが押されているかを判断するためのチェックボックスを隠す*/
+#hamburger_btn_check{
+  display: none;
+}
+
+
+/* ----------------------------------------------- カールセル */
+.my_carousel_caption{
+  font-size:52px;
+  padding-top:1.25rem;
+  padding-bottom:1.25rem;
+  color: white;
+  text-align: center;
+  font-family: 'Lora', serif;
+  line-height: 1.5em;
+}
+
+/*疑似要素でアイコン配置。前に配置します*/
+.my_carousel_caption::before{
+  content: url(../img/logoSymbol_White.png);
+  display: block;
+}
+
+/*スマホ画面幅(最大375pxまで)の場合、以下を適用*/
+@media screen and (max-width: 400px){
+  .my_carousel_caption{
+    font-size: 27px;
+  }
+}
+
+/*carousel-itemの高さを32remに指定*/
+.carousel-item{
+  height: 32rem;
+}
+
+/*carousel-item直下の子要素imgタグに設定*/
+.carousel-item > img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  /*高さはcarousel-itemに揃える*/
+  height: 32rem;
+}
+
+/* ----------------------------------------------- アバウト */
+/*aboutクラスのあとに私たちについての文字を追加*/
+.about::after{
+  content: "私たちについて";
+}
+
+.about_us_bg{
+  background-color: #FFE6A5;
+}
+
+
+
+/* ----------------------------------------------- ギャラリー */
+.gallery::after{
+  content: "ギャラリー";
+  margin: 0 auto 0;
+}
+
+
+
+
+/* ----------------------------------------------- メニュー */
+.menu::after{
+ content: "メニュー";
+ margin: 0 auto 0;
+}
+
+.menu_title{
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.menu_price{
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Lora', serif;
+}
+
+
+
+
+/* ----------------------------------------------- レビュー */
+/*背景画像*/
+.review_wrapper{
+  background-image: url(../img/background-reviews.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*サブタイトルを疑似要素で表示*/
+.review::after{
+  content:"お客様の声";
+  margin: 0 auto 0;
+  border-bottom: solid 1px #FFFFFF;
+}
+
+/*白い背景色の高さを固定*/
+.h_420{
+  height: 420px;
+  position: relative;
+}
+
+/*レビューの画像を修正*/
+.reviewer_img{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-left: 16px;
+}
+
+/*星のアイコン*/
+.star_img{
+  width: 25px;
+  height: 25px;
+}
+
+.fix_bottom{
+  /*文字数が変わっても下に固定*/
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  /*ボタンサイズ変更*/
+  width: 80px;
+  height: 44px;
+}
+
+
+/* ----------------------------------------------- アクセス */
+.access::after{
+  content: "アクセス";
+  margin: 0 auto 0;
+}
+
+
+
+
+/* ----------------------------------------------- フッター */
+#footer{
+  background-color: #FAFAFA;
+}
+
+/*position absokuteで下からの距離固定*/
+.copy_right{
+  font-size: 14px;
+  position: absolute;
+  bottom: 1rem;
+  left: 12px;
+  /*flexでcopy_right内の要素を横並びに*/
+  display: flex;
+}
+
+/*copy_rightのクラスを適用したdivタグの子要素のｐタグに適用*/
+.copy_right>p{
+  margin-right: 5rem;
+  margin-bottom: 0;
+}
+
+/*copy_rightクラスを適用したdivタグの子要素でsns_imgクラスを適用しているimgタグに適用*/
+.copy_right>img.sns_img{
+  /*snsアイコンのサイズ、余白変更*/
+  height: 24px;
+  width: 24px;
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+/*restaurant_info直下の子要素pタグ全てに適用*/
+.restaurant_info p{
+  font-weight:400;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/*restaurant_info直下の子要素imgタグ全てに適用*/
+.restaurant_info img{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+/*サイトアイコン変更*/
+.footer_brand_logo{
+  width: 64px;
+  height: 64px;
+  margin-left: 15px;
+  display: inline-block;
+
+}
+
+/*サイトタイトルのフォント変更*/
+.footer_text{
+  font-size:24px;
+  font-family: 'Lora', serif;
+}
+
+/*スマホのみで適用*/
+@media screen and (max-width:991px){
+  .footer_text,
+  .copy_right{
+    margin-top: 2rem;
+    text-align:center;
+    position: relative;
+  }
+
+  .copy_right > p, img{
+    margin-left:1rem;
+    font-size:14px;
+    margin: 0;
+    line-height: 35px;
+  }
+}
